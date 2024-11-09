@@ -26,7 +26,9 @@ const loc = useLoc(pathname, locTable);
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="sitemap" href="/sitemap-index.xml" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="preload" href="/Inter-Regular.woff2" as="font" crossorigin />
+    <link rel="preload" href="/Inter-Medium.woff2" as="font" crossorigin />
+    <link rel="preload" href="/michal-tkac.webp" as="image" />
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content={loc.description} />
     <title>Michal Tkáč</title>
