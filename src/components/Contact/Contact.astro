@@ -1,0 +1,41 @@
+---
+import Line from "./Line.astro";
+import Link from "./Link.astro";
+import Part from "./Part.astro";
+
+interface Props {
+  parts: string[];
+  links: [name: string, start: number, end: number, href: string][];
+}
+
+const { parts, links } = Astro.props;
+
+const email = parts.join("");
+---
+
+<div class="flex flex-col items-center">
+  <address class="mb-4 text-2xl not-italic sm:text-4xl">
+    {email}
+  </address>
+  {
+    links.map(([name, start, end, href]) => (
+      <div class="flex">
+        <Line />
+        {[...new Array(start)].map((_, i) => (
+          <>
+            <Part text={parts[i]} />
+            <Line />
+          </>
+        ))}
+        <Link name={name} href={href} part={parts.slice(start, end).join("")} />
+        {[...new Array(parts.length - end)].map((_, i) => (
+          <>
+            <Line />
+            <Part text={parts[end + i]} />
+          </>
+        ))}
+        <Line />
+      </div>
+    ))
+  }
+</div>

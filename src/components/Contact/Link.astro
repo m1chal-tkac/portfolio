@@ -1,0 +1,26 @@
+---
+import Part from "./Part.astro";
+
+interface Props {
+  name: string;
+  href: string;
+  part: string;
+}
+
+const { name, href, part } = Astro.props;
+---
+
+<div class="relative">
+  <Part text={part} />
+  <div
+    class="after:context-[''] absolute left-1/2 top-1/2 w-full -translate-x-1/2 -translate-y-1/2 text-center before:absolute before:left-0 before:top-1/2 before:-z-10 before:w-[calc(100%_+_1px)] before:-translate-y-1/2 before:border-b before:border-gray-700 before:content-[''] after:absolute after:-left-1 after:top-1/2 after:-z-10 after:box-content after:h-5 after:w-[calc(100%_+_8px)] after:translate-y-[1px] after:bg-gray-950"
+  >
+    <a
+      href={href}
+      class="bg-gray-950 p-2 text-gray-400 underline"
+      target="_blank"
+    >
+      {name}
+    </a>
+  </div>
+</div>

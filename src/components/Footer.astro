@@ -1,0 +1,16 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer
+  class="mt-10 w-full border-t border-gray-700 p-4 text-center text-xs text-gray-400"
+>
+  {year} © Michal Tkáč
+</footer>
+
+<script>
+  const footer = document.querySelector("footer");
+  const year = new Date().getFullYear();
+
+  if (footer) footer.innerHTML = `${year} © Michal Tkáč`;
+</script>

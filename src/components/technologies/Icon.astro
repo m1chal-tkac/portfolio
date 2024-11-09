@@ -1,0 +1,25 @@
+---
+interface Props {
+  name: string;
+  icon: string;
+  href: string;
+  class?: string;
+}
+
+const { name, icon, href, class: className } = Astro.props;
+---
+
+<li class="group relative z-10 size-10 rounded border border-gray-700">
+  <div
+    class="absolute left-1/2 top-6 -z-10 max-w-10 -translate-x-1/2 -translate-y-full overflow-hidden text-nowrap rounded border border-gray-700 bg-gray-950 p-1 text-xs text-gray-400 opacity-0 transition-all duration-300 group-hover:-top-2 group-hover:max-w-40 group-hover:opacity-100"
+  >
+    {name}
+  </div>
+  <a
+    class="flex h-full w-full flex-col rounded bg-gray-950 p-[0.35rem]"
+    href={href}
+    target="_blank"
+  >
+    <img src={icon} alt={name} class={`size-6 object-contain ${className}`} />
+  </a>
+</li>

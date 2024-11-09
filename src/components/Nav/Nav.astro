@@ -1,0 +1,57 @@
+---
+import { useLoc } from "../../scripts/useLoc";
+import Link from "./Link.astro";
+
+const locTable = {
+  cs: {
+    home: "Domů",
+    projects: "Projekty",
+    experience: "Praxe",
+    contact: "Kontakt",
+  },
+  en: {
+    home: "Home",
+    projects: "Projects",
+    experience: "Experience",
+    contact: "Contact",
+  },
+};
+
+const pathname = Astro.url.pathname;
+const loc = useLoc(pathname, locTable);
+---
+
+<nav>
+  <ul
+    class="hidden w-full justify-center space-x-16 border-b border-b-gray-700 p-4 md:flex"
+  >
+    <Link name={loc.home} href="#home" />
+    <Link name={loc.projects} href="#projects" />
+    <Link name={loc.experience} href="#experience" />
+    <Link name={loc.contact} href="#contact" />
+  </ul>
+</nav>
+
+<script>
+  const main = document.querySelector("main");
+  const navLinks = document.querySelectorAll("nav a");
+
+  if (main)
+    main.onscroll = () => {
+      const scroll = window.scrollY + window.innerHeight / 2;
+
+      for (const link of navLinks) {
+        const section = document.querySelector(link.getAttribute("href") || "");
+
+        if (section) {
+          const { top, bottom } = section.getBoundingClientRect();
+
+          if (scroll >= top && scroll <= bottom) {
+            link.className = "text-emerald-400";
+          } else {
+            link.className = "text-gray-400 hover:text-gray-300";
+          }
+        }
+      }
+    };
+</script>

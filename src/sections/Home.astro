@@ -1,0 +1,46 @@
+---
+import { useLoc } from "../scripts/useLoc";
+
+const locTable = {
+  cs: {
+    subTitle: "IT student na POJ FM z České republiky",
+    projects: "Projekty",
+    experience: "Praxe",
+  },
+  en: {
+    subTitle: "IT student at POJ FM from the Czech Republic",
+    projects: "Projects",
+    experience: "Experience",
+  },
+};
+
+const pathname = Astro.url.pathname;
+const loc = useLoc(pathname, locTable);
+---
+
+<section
+  id="home"
+  class="flex h-full w-full flex-col items-center justify-center p-4 md:flex-row"
+>
+  <img
+    src="/michal-tkac.webp"
+    alt="Michal Tkáč"
+    class="aspect-square w-full max-w-80 rounded-full bg-gray-900"
+  />
+  <div class="w-80 max-w-full pt-20 md:w-auto md:pl-20 md:pt-0">
+    <h1 class="mb-4 text-5xl text-emerald-400">Michal Tkáč</h1>
+    <h2 class="mb-12 text-balance">{loc.subTitle}</h2>
+    <div class="flex">
+      <a
+        href="#projects"
+        class="mr-4 w-28 rounded-lg border-2 border-emerald-400 py-2 text-center text-sm font-bold text-emerald-400"
+        >{loc.projects}</a
+      >
+      <a
+        href="#experience"
+        class="w-28 rounded-lg border-2 border-gray-400 py-2 text-center text-sm font-bold text-gray-400"
+        >{loc.experience}</a
+      >
+    </div>
+  </div>
+</section>

@@ -1,0 +1,49 @@
+---
+import "./base.css";
+import Footer from "./components/Footer.astro";
+import Nav from "./components/Nav/Nav.astro";
+import { useLoc } from "./scripts/useLoc";
+
+const pathname = Astro.url.pathname;
+const lang = pathname.startsWith("/en") ? "en" : "cs";
+
+const locTable = {
+  cs: {
+    description:
+      "Michal Tkáč - portfolio projektů, IT student na POJ FM z České republiky",
+  },
+  en: {
+    description:
+      "Michal Tkáč - portfolio of projects, IT student at POJ FM from the Czech Republic",
+  },
+};
+
+const loc = useLoc(pathname, locTable);
+---
+
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="preload" href="/michal-tkac.webp" as="image" />
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap"
+      as="style"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={loc.description} />
+    <title>Michal Tkáč</title>
+  </head>
+  <body
+    class="flex h-screen w-screen flex-col bg-gray-950 text-gray-300 supports-[height:100svh]:h-[100svh]"
+  >
+    <Nav />
+    <main class="flex-1 overflow-y-auto scroll-smooth">
+      <slot />
+      <Footer />
+    </main>
+  </body>
+</html>

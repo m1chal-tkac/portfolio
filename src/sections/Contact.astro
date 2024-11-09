@@ -1,0 +1,28 @@
+---
+import Section from "../components/Section.astro";
+import ContactComponent from "../components/Contact/Contact.astro";
+import { useLoc } from "../scripts/useLoc";
+
+const locTable = {
+  cs: {
+    contact: "Kontakt",
+  },
+  en: {
+    contact: "Contact",
+  },
+};
+
+const pathname = Astro.url.pathname;
+const loc = useLoc(pathname, locTable);
+---
+
+<Section id="contact" title={loc.contact}>
+  <ContactComponent
+    parts={["hello", "@", "m1chal-tkac", ".com"]}
+    links={[
+      ["Github", 2, 3, "https://github.com/m1chal-tkac"],
+      ["Instagram", 1, 3, "https://www.instagram.com/m1chal_tkac"],
+      ["Email", 0, 4, "mailto:hello@m1chal-tkac.com"],
+    ]}
+  />
+</Section>

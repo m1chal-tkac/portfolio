@@ -1,0 +1,47 @@
+---
+import Section from "../components/Section.astro";
+import Project from "../components/Project.astro";
+import { useLoc } from "../scripts/useLoc";
+
+const locTable = {
+  cs: {
+    projects: "Projekty",
+    scoutWeb: "Skautský web",
+    eshop: "E-Shop",
+  },
+  en: {
+    projects: "Projects",
+    scoutWeb: "Scout web",
+    eshop: "E-Shop",
+  },
+};
+
+const pathname = Astro.url.pathname;
+const loc = useLoc(pathname, locTable);
+---
+
+<Section id="projects" title={loc.projects}>
+  <div class="-mb-8 -ml-8 flex flex-wrap justify-center">
+    <Project
+      name={loc.scoutWeb}
+      image="/projects/scout-website.svg"
+      contribution="Solo Dev"
+      web="https://nashuro.cz"
+      github="https://github.com/m1chal-tkac/scout-website"
+      technologies={["Astro", "React", "TypeScript", "Tailwind CSS", "GraphQL"]}
+    />
+    <Project
+      name={loc.eshop}
+      image="/projects/eshop.svg"
+      contribution="Main Contributor"
+      web="https://drip-eco.com"
+      technologies={[
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "GraphQL",
+      ]}
+    />
+  </div>
+</Section>

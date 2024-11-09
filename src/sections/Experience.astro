@@ -1,0 +1,54 @@
+---
+import Section from "../components/Section.astro";
+import ExperienceCard from "../components/Experience.astro";
+import { useLoc } from "../scripts/useLoc";
+
+const locTable = {
+  cs: {
+    experience: "Praxe",
+    1: {
+      title: "Next.js developer",
+      span: "09/2022 - Aktuální",
+      description: "Vývoj nového firemního E-Shopu pro studentský startup.",
+    },
+    2: {
+      title: "Stážista",
+      span: "05/2023",
+      description:
+        "Erasmus+ praxe ve Španělsku. Vývoj rezervačního systému bytů.",
+    },
+  },
+  en: {
+    experience: "Experience",
+    1: {
+      title: "Next.js developer",
+      span: "09/2022 - Present",
+      description: "Development of a new company E-Shop for a student startup.",
+    },
+    2: {
+      title: "Intern",
+      span: "05/2023",
+      description:
+        "Erasmus+ internship in Spain. Development of a flat reservation system.",
+    },
+  },
+};
+
+const pathname = Astro.url.pathname;
+const loc = useLoc(pathname, locTable);
+---
+
+<Section id="experience" title={loc.experience}>
+  <ExperienceCard
+    title={loc[1].title}
+    company="Studentský DRIP, z.s."
+    span={loc[1].span}
+    description={loc[1].description}
+  />
+  <ExperienceCard
+    title={loc[2].title}
+    company="Campus Idiomático"
+    span={loc[2].span}
+    description={loc[2].description}
+  />
+</Section>
