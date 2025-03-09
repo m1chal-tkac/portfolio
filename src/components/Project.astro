@@ -5,10 +5,14 @@ import Typescript from "./technologies/Typescript.astro";
 import Tailwind from "./technologies/Tailwind.astro";
 import Graphql from "./technologies/Graphql.astro";
 import Nextjs from "./technologies/Nextjs.astro";
+import PHP from "./technologies/PHP.astro";
+import MySQL from "./technologies/MySQL.astro";
 
 type Technology =
   | "Astro"
   | "Next.js"
+  | "MySQL"
+  | "PHP"
   | "React"
   | "Tailwind CSS"
   | "TypeScript"
@@ -26,6 +30,8 @@ interface Props {
 const technologiesIcons: Record<Technology, any> = {
   Astro: AstroIcon,
   "Next.js": Nextjs,
+  MySQL: MySQL,
+  PHP: PHP,
   React: React,
   "Tailwind CSS": Tailwind,
   TypeScript: Typescript,

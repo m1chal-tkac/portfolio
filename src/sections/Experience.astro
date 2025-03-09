@@ -9,13 +9,20 @@ const locTable = {
     1: {
       title: "Next.js developer",
       span: "09/2022 - Aktuální",
-      description: "Vývoj nového firemního E-Shopu pro studentský startup.",
+      description:
+        "• Vývoj nového firemního e-shopu drip-eco.com\n• Práce s Next.Js, React.Js, TailwindCSS, Typescript a GraphQL\n• Propojení e-shopu s CMS ",
     },
     2: {
-      title: "Stážista",
+      title: "Studentská stáž",
+      span: "09/2024 - 02/2025",
+      description:
+        "• Vytvoření rozhraní API pomocí C# ASP.NET\n• Práce s EFC\n• Jednou za dva týdny",
+    },
+    3: {
+      title: "Web Developer, ERASMUS+",
       span: "05/2023",
       description:
-        "Erasmus+ praxe ve Španělsku. Vývoj rezervačního systému bytů.",
+        "• Vývoj systému pro rezervaci bytů.\n• Práce s dalším Erasmus+ stážistou\n• Implementace backendové logiky pomocí PHP a MySQL\n• Vytváření tabulkových zobrazení, editačních a vytvářecích formulářů pro byty, klienty a rezervace\n• Použití HTML, CSS, JavaScript, TailwindCSS a React.Js",
     },
   },
   en: {
@@ -23,13 +30,20 @@ const locTable = {
     1: {
       title: "Next.js developer",
       span: "09/2022 - Present",
-      description: "Development of a new company E-Shop for a student startup.",
+      description:
+        "• Development of new company e-shop drip-eco.com\n• Working with Next.Js, React.Js, TailwindCSS, Typescript and GraphQL\n• Connecting the e-shop to a CMS",
     },
     2: {
-      title: "Intern",
+      title: "Student Intern",
+      span: "09/2024 - 02/2025",
+      description:
+        "• Creation of an API using C# ASP.NET\n• Working with EFC\n• Once every two weeks",
+    },
+    3: {
+      title: "Web Developer, ERASMUS+",
       span: "05/2023",
       description:
-        "Erasmus+ internship in Spain. Development of a flat reservation system.",
+        "• Development of a flat reservation system.\n• Working with another Erasmus+ intern\n• Implementing backend logic using PHP and MySQL\n• Creating table views, edit and create forms for flats, clients and reservations\n• Using HTML, CSS, JavaScript, TailwindCSS and React.Js",
     },
   },
 };
@@ -47,8 +61,14 @@ const loc = useLoc(pathname, locTable);
   />
   <ExperienceCard
     title={loc[2].title}
-    company="Campus Idiomático"
+    company="ITIXO"
     span={loc[2].span}
     description={loc[2].description}
+  />
+  <ExperienceCard
+    title={loc[3].title}
+    company="Campus Idiomático"
+    span={loc[3].span}
+    description={loc[3].description}
   />
 </Section>

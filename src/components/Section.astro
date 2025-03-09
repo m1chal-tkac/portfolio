@@ -1,15 +1,18 @@
 ---
+import { classicNameResolver } from "typescript";
+
 interface Props {
   id: string;
   title: string;
+  wide?: boolean;
 }
 
-const { id, title } = Astro.props;
+const { id, title, wide } = Astro.props;
 ---
 
 <section
   id={id}
-  class="mx-auto flex max-w-4xl flex-col justify-center px-4 pb-10 pt-10"
+  class={`mx-auto flex ${wide ? "max-w-5xl" : "max-w-4xl"} flex-col justify-center px-4 pb-10 pt-10`}
 >
   <h1 class="mb-10 text-center text-4xl text-emerald-400">{title}</h1>
   <slot />

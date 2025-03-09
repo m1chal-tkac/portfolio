@@ -25,7 +25,14 @@ const { title, company, span, description } = Astro.props;
       </li>
     </ul>
   </div>
-  <p class="text-sm text-gray-400">
-    {description}
-  </p>
+  <div class="text-sm text-gray-400">
+    {
+      description.split("\n").map((line) => (
+        <p class="mb-1 sm:mb-0">
+          {line}
+          <br />
+        </p>
+      ))
+    }
+  </div>
 </article>

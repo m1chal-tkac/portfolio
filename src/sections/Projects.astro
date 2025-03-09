@@ -6,13 +6,15 @@ import { useLoc } from "../scripts/useLoc";
 const locTable = {
   cs: {
     projects: "Projekty",
-    scoutWeb: "Skautský web",
+    competitionWeb: "Soutěžní web",
     eshop: "E-Shop",
+    scoutWeb: "Skautský web",
   },
   en: {
     projects: "Projects",
-    scoutWeb: "Scout web",
+    competitionWeb: "Competitions web",
     eshop: "E-Shop",
+    scoutWeb: "Scout web",
   },
 };
 
@@ -20,15 +22,14 @@ const pathname = Astro.url.pathname;
 const loc = useLoc(pathname, locTable);
 ---
 
-<Section id="projects" title={loc.projects}>
+<Section id="projects" title={loc.projects} wide>
   <div class="-mb-8 -ml-8 flex flex-wrap justify-center">
     <Project
-      name={loc.scoutWeb}
-      image="/projects/scout-website.svg"
+      name={loc.competitionWeb}
+      image="/projects/competitions-web.svg"
       contribution="Solo Dev"
-      web="https://nashuro.cz"
-      github="https://github.com/m1chal-tkac/scout-website"
-      technologies={["Astro", "React", "TypeScript", "Tailwind CSS", "GraphQL"]}
+      github="https://github.com/m1chal-tkac/fokusnj"
+      technologies={["PHP", "MySQL", "Astro", "React", "Tailwind CSS"]}
     />
     <Project
       name={loc.eshop}
@@ -42,6 +43,14 @@ const loc = useLoc(pathname, locTable);
         "Tailwind CSS",
         "GraphQL",
       ]}
+    />
+    <Project
+      name={loc.scoutWeb}
+      image="/projects/scout-website.svg"
+      contribution="Solo Dev"
+      web="https://nashuro.cz"
+      github="https://github.com/m1chal-tkac/scout-website"
+      technologies={["Astro", "React", "TypeScript", "Tailwind CSS", "GraphQL"]}
     />
   </div>
 </Section>
