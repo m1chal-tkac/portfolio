@@ -6,19 +6,25 @@ import { useLoc } from "../scripts/useLoc";
 const locTable = {
   cs: {
     experience: "Praxe",
-    1: {
+     1: {
+      title: "Programátor, ERASMUS+",
+      span: "06/2025 - 09/2025",
+      description:
+        "• Programování WhatsApp AI chatbota pro realitní kancelář\n• Použití ChatGPT API a Cloudflare Workers\n• Úpravy firemních stránek pomocí HTML, CSS a JavaScriptu",
+    },
+    2: {
       title: "Next.js developer",
-      span: "09/2022 - Aktuální",
+      span: "09/2022 - 06/2025",
       description:
         "• Vývoj nového firemního e-shopu drip-eco.com\n• Práce s Next.Js, React.Js, TailwindCSS, Typescript a GraphQL\n• Propojení e-shopu s CMS ",
     },
-    2: {
+    3: {
       title: "Studentská stáž",
       span: "09/2024 - 02/2025",
       description:
         "• Vytvoření rozhraní API pomocí C# ASP.NET\n• Práce s EFC\n• Jednou za dva týdny",
     },
-    3: {
+    4: {
       title: "Web Developer, ERASMUS+",
       span: "05/2023",
       description:
@@ -28,18 +34,24 @@ const locTable = {
   en: {
     experience: "Experience",
     1: {
+      title: "Programmer, ERASMUS+",
+      span: "06/2025 - 09/2025",
+      description:
+        "• Programming a WhatsApp AI chatbot for a real estate agency\n• Using ChatGPT API and Cloudflare Workers\n• Modifying company website using HTML, CSS and JavaScript",
+    },
+    2: {
       title: "Next.js developer",
-      span: "09/2022 - Present",
+      span: "09/2022 - 06/2025",
       description:
         "• Development of new company e-shop drip-eco.com\n• Working with Next.Js, React.Js, TailwindCSS, Typescript and GraphQL\n• Connecting the e-shop to a CMS",
     },
-    2: {
+    3: {
       title: "Student Intern",
       span: "09/2024 - 02/2025",
       description:
         "• Creation of an API using C# ASP.NET\n• Working with EFC\n• Once every two weeks",
     },
-    3: {
+    4: {
       title: "Web Developer, ERASMUS+",
       span: "05/2023",
       description:
@@ -55,20 +67,26 @@ const loc = useLoc(pathname, locTable);
 <Section id="experience" title={loc.experience}>
   <ExperienceCard
     title={loc[1].title}
-    company="Studentský DRIP, z.s."
+    company="Futura Propiedades"
     span={loc[1].span}
     description={loc[1].description}
   />
   <ExperienceCard
     title={loc[2].title}
-    company="ITIXO"
+    company="Studentský DRIP, z.s."
     span={loc[2].span}
     description={loc[2].description}
   />
   <ExperienceCard
     title={loc[3].title}
-    company="Campus Idiomático"
+    company="ITIXO"
     span={loc[3].span}
     description={loc[3].description}
+  />
+  <ExperienceCard
+    title={loc[4].title}
+    company="Campus Idiomático"
+    span={loc[4].span}
+    description={loc[4].description}
   />
 </Section>
